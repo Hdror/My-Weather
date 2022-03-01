@@ -1,0 +1,19 @@
+.app-header {
+    height: 70px;
+    background-color: rgb(42, 92, 230);
+
+    .main-header {
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            font-family: f-logo;
+            font-weight:900;
+            font-size: rem(25px);
+        }
+
+        a {
+            padding-inline-start: 20px;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.search-bar {
+    // position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block-start: 30px;
+    margin-block-end: 30px;
+    
+
+    .autocomplite-menu {
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        flex-direction: column;
+        gap: 8px;
+        border: 1px solid $clr9;
+        border-radius: 8px;
+        font-family: f-light;
+        background-color: $clr5;
+        padding: 10px 0px;
+
+        .modal-text{
+            box-shadow: 0 1px 0 $clr9;
+            padding: 0px 20px 10px;
+        }
+
+        .option-container{
+            padding: 5px 20px;
+            color: $clr12;
+            cursor: pointer;
+            transition: background-color 0.3s cubic-bezier(0.05, 0, 0, 1);
+            &:hover{
+                background-color: $clr8;
+                color: $clr5;
+            }
+        }
+    }
+
+    .search-bar-container {
+        position: relative;
+        justify-content: space-between;
+        width: 200px;
+        border-radius: 100vh;
+        border: 1px solid $clr9;
+        padding: 10px 14px;
+        padding-inline-end: 0;
+        margin-inline-end: 10px;
+
+        input {
+            border: none;
+            background: none;
+            outline-style: none;
+            box-shadow: none;
+            width: 100px;
+        }
+
+        .search-icon-container {
+            height: 30px;
+            width: 30px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color:  $clr3;
+            cursor: pointer;
+            margin-inline-end: 8px;
+            transition: background-color 0.5s cubic-bezier(0.05, 0, 0, 1);
+            &:hover{
+                background-color:$clr2;  
+            }
+            .search-icon {
+                height: 16px;
+                width: 16px;
+            }
+        }
+    }
+}

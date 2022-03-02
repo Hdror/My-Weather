@@ -14,10 +14,10 @@ export class _FavoritePage extends React.Component {
 
     render() {
 
-        return <section>
+        return <section className="main-container">
             {this.props.favorites.map(city => {
-                return <div className="main-container" key={city.Key}>
-                    <Link to={`/${city.Key}`}>
+                return <div  key={city.Key}>
+                    <Link className="clean-link" to={`/${city.Key}`}>
                         <h1>
                             {city.LocalizedName}
                         </h1>

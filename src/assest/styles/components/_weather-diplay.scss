@@ -1,30 +1,43 @@
 .weather-display {
     flex-direction: column;
 
-    .test{
+    .test {
         position: absolute;
-
     }
-    
+
     .heart-icon {
         position: relative;
-        margin-block-end: 15px;
+        margin-block-end: 25px;
         height: 30px;
         width: 30px;
         align-self: center;
-        color: rgb(199, 98, 98);
+        color: $clr1;
         // opacity: 0.9;
-      
     }
-  
+
     .weather-display-container {
         gap: 20px;
         display: grid;
         grid-auto-flow: dense;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        box-shadow: 0 1px 0 $clr7;
+        padding: 20px 0px;
         .forecast-card {
             border-radius: 8px;
             border: 1px solid $clr9;
+            position: relative;
+
+            .temp-display {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                font-size: rem(14px);
+
+                span{
+                    font-size: rem(12px);
+                }
+            }
+
             img {
                 padding: 14px;
                 border-top-left-radius: 8px;
@@ -35,8 +48,71 @@
                 // height: 100px;
             }
             .card-info {
+                flex-direction: column;
+                gap: 10px;
+                font-size: rem(14px);
                 padding: 14px;
             }
         }
     }
+}
+
+input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+//outer lable
+label {
+    display: block;
+    width: 55px;
+    height: 30px;
+    background-color: var(--color-w-3);
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 0 5px 5px #00000038, inset 0 0 15px 5px #b4adad9a;
+    box-shadow: 0 0 2px 2.2px #00000038, inset 0 0 15px 4px #b4adad9a;
+}
+
+//inner circle
+label::after {
+    content: "day";
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: rem(6px);
+    color: white;
+    width: 25px;
+    height: 25px;
+    background-color: $clr2;
+    position: absolute;
+    border-radius: 70px;
+    top: 2.5px;
+    left: 3px;
+    transition: 0.5s;
+    box-shadow: 0 0 15px 5px #00000013, inset 0 0 50px 10px #969696;
+}
+
+//when click
+input:checked + label::after {
+    left: calc(100% - 3px);
+    content: "night";
+    color: $clr2;
+    transform: translateX(-100%);
+    background-color: $clr9;
+    box-shadow: inset 0 0 10px 5px #fafafa7a;
+}
+
+//outer lable
+input:checked + label {
+    background-color: $clr12;
+    box-shadow: 0 0 25px 1px #fafafa65, inset 0 0 25px 1px #fafafa65;
+}
+
+//inner circle width changes when clicked
+label:active::after {
+    width: 16px;
 }

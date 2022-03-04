@@ -2,10 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { removeFavorite } from '../store/favortie.action.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinusCircle as fullCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircleMinus as emptyCircle } from '@fortawesome/free-regular-svg-icons'
+
+import { removeFavorite, loadFavorites } from '../store/favortie.action.js'
 
 export class _FavoritePage extends React.Component {
 
+    componentDidMount() {
+        if (!this.props.favorites.length) {
+            this.props.loadFavorites()
+            console.log('loading');
+        }
+    }
 
     onRemoveFavorite = (city) => {
         city.isFavorite = false
@@ -14,18 +24,21 @@ export class _FavoritePage extends React.Component {
 
     render() {
 
-        return <section className="main-container">
-            {this.props.favorites.map(city => {
-                return <div  key={city.Key}>
-                    <Link className="clean-link" to={`/${city.Key}`}>
-                        <h1>
-                            {city.LocalizedName}
-                        </h1>
-                    </Link>
-                    <button onClick={() => { this.onRemoveFavorite(city) }}>Remove from favorites</button>
+        return <main className="favorite-page main-container">
+            <div className="favorites-container ">
+                <h1>Your favorites</h1>
+                <div className="favorite-list">
+                    {this.props.favorites.map(city => {
+                        return <Link key={city.Key} className="clean-link" to={`/${city.Key}`}>
+                            <div className="favorite-card flex" >
+                                <p>{city.LocalizedName}, <span>{city.Country.LocalizedName}</span></p>
+                                <FontAwesomeIcon title="Remove" onClick={(ev) => { ev.preventDefault(); this.onRemoveFavorite(city) }} icon={fullCircle} />
+                            </div>
+                        </Link>
+                    })}
                 </div>
-            })}
-        </section>
+            </div>
+        </main>
     }
 }
 
@@ -38,7 +51,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-    removeFavorite
+    removeFavorite,
+    loadFavorites
 }
 
 export const FavoritePage = connect(mapStateToProps, mapDispatchToProps)(_FavoritePage)

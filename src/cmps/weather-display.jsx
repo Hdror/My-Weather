@@ -29,7 +29,7 @@ export class WeatherDisplay extends React.Component {
         const heartIcon = (this.isFavorite(city)) ? fullHeart : emptyHeart
         return <div className="weather-display flex">
             <FontAwesomeIcon onClick={this.props.onAddFavorite} className="heart-icon" icon={heartIcon} />
-            <div className="test">{city.LocalizedName}'s forecast  </div>
+            <div className="city-name">{city.LocalizedName}'s forecast  </div>
             <input onClick={this.toggleForecast} type="checkbox" name="switch" id="switch" />
             <label htmlFor="switch"></label>
             {displayDayForecast && < div className="weather-display-container ">

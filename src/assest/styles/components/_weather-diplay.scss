@@ -1,7 +1,7 @@
 .weather-display {
     flex-direction: column;
 
-    .test {
+    .city-name {
         position: absolute;
     }
 
@@ -12,7 +12,6 @@
         width: 30px;
         align-self: center;
         color: $clr1;
-        // opacity: 0.9;
     }
 
     .weather-display-container {
@@ -20,7 +19,6 @@
         display: grid;
         grid-auto-flow: dense;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        box-shadow: 0 1px 0 $clr7;
         padding: 20px 0px;
         .forecast-card {
             border-radius: 8px;
@@ -33,7 +31,7 @@
                 top: 10px;
                 font-size: rem(14px);
 
-                span{
+                span {
                     font-size: rem(12px);
                 }
             }
@@ -43,9 +41,7 @@
                 border-top-left-radius: 8px;
                 border-top-right-radius: 8px;
                 background-color: rgba(221, 221, 221, 0.278);
-                // border: 1px solid $clr9;
                 width: 100%;
-                // height: 100px;
             }
             .card-info {
                 flex-direction: column;
@@ -66,13 +62,13 @@ input[type="checkbox"] {
 //outer lable
 label {
     display: block;
+    margin-block-end: 20px;
     width: 55px;
     height: 30px;
-    background-color: var(--color-w-3);
     border-radius: 100px;
     position: relative;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.3s;
     box-shadow: 0 0 5px 5px #00000038, inset 0 0 15px 5px #b4adad9a;
     box-shadow: 0 0 2px 2.2px #00000038, inset 0 0 15px 4px #b4adad9a;
 }
@@ -84,35 +80,35 @@ label::after {
     display: flex;
     justify-content: center;
     font-size: rem(6px);
-    color: white;
+    color: $clr10;
     width: 25px;
     height: 25px;
-    background-color: $clr2;
     position: absolute;
     border-radius: 70px;
     top: 2.5px;
     left: 3px;
     transition: 0.5s;
-    box-shadow: 0 0 15px 5px #00000013, inset 0 0 50px 10px #969696;
+    box-shadow: 0 0 2px 2px #00000073, inset 0 0 50px 10px #ffffff;
 }
 
 //when click
 input:checked + label::after {
     left: calc(100% - 3px);
     content: "night";
-    color: $clr2;
+    color: $clr5;
     transform: translateX(-100%);
-    background-color: $clr9;
-    box-shadow: inset 0 0 10px 5px #fafafa7a;
+    background-color: $clr10;
+    box-shadow: 0 0 2px 1.2px #383333b3, inset 0 0 9px 10px #fafafa65;
 }
 
 //outer lable
 input:checked + label {
-    background-color: $clr12;
     box-shadow: 0 0 25px 1px #fafafa65, inset 0 0 25px 1px #fafafa65;
+    box-shadow: 0 0 2px 2.2px #00000038, inset 0 0 15px 4px #b4adad9a;
 }
 
 //inner circle width changes when clicked
 label:active::after {
-    width: 16px;
+    width: 15px;
+    box-shadow: 0 0 15px 5px #00000013, inset 0 0 50px 10px #969696;
 }

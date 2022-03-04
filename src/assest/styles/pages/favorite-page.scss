@@ -1,0 +1,41 @@
+.favorite-page {
+    height: 89vh;
+    background: linear-gradient(180deg, $clr13 50%, $clr5 50%);
+    // background-color: $clr13;
+    padding: 40px 0px;
+    .favorites-container {
+        // margin: 0px auto 0px;
+        justify-self: center;
+        // min-height: 600px;
+        max-width: 90%;
+        width: 100%;
+        gap: 20px;
+        padding:  30px;
+        background-color: $clr7;
+        border-radius: 8px;
+
+        h1 {
+            padding-block-end: 20px;
+            margin-block-end: 40px;
+            color: $clr1;
+            box-shadow: 0 1px 0 $clr1;
+        }
+        .favorite-list {
+            gap: 20px;
+            justify-content: space-between;
+            display: grid;
+            grid-auto-flow: dense;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+            .favorite-card {
+                gap: 20px;
+                padding: 20px;
+                border-radius: 8px;
+                font-size: rem(22px);
+                background-color: $clr6;
+                color: $clr4;
+                flex-direction: column;
+            }
+        }
+    }
+}

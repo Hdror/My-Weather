@@ -24,6 +24,8 @@ export class _HomePage extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        console.log(prevProps);
+        console.log(this.props.match.params);
         if (prevProps.match.params !== this.props.match.params)
             this.submitSearch()
     }
@@ -36,9 +38,9 @@ export class _HomePage extends React.Component {
             console.log(cityId);
             const city = await forecastService.getByKey(cityId)
 
-            console.log(city);
             const forecast = await forecastService.getForecast(city.Key)
             this.setState({ forecast, city }, () => { console.log(this.state) })
+            console.log(city);
         })()
     }
 
@@ -60,6 +62,7 @@ export class _HomePage extends React.Component {
 
     render() {
         const { forecast, city } = this.state
+        console.log(forecast);
         const { favorites } = this.props
         return <section className="main-container">
             <SearchBar submitSearch={this.submitSearch} />

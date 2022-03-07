@@ -1,9 +1,7 @@
-
+import { storageService } from '../services/async.storage.service.js'
 
 const axios = require('axios')
-
 const STORAGE_KEY = 'cityDB'
-const localStorage = require('./storage.service.js')
 const API_KEY = 'CcGOORXohLrHO43WtXfyAeUEgQQVL6oa'
 
 const gCities = [
@@ -341,28 +339,32 @@ export const forecastService = {
 }
 
 async function getByKey(cityKey) {
-  
-  return gCities.find(city => city.Key === cityKey)
+  const locations = await storageService.query(STORAGE_KEY)
+  return locations.find(city => city.Key === cityKey)
 }
 
-async function getLocations(searchLetters) {
+async function getLocations(text) {
   try {
-    // const res = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${location}
-    // `)
-    // const locations = res.data
-    // return locations
+    const locations = await storageService.query(STORAGE_KEY)
 
-    //Changing input to always start a capital letter
-    // let searchCity = searchLetters.charAt(0).toUpperCase() + searchLetters.substring(1).toLowerCase()
-    // return gCities.filter(city => city.LocalizedName.startsWith(searchCity))
-
-    //Changing both input and data into capital letters
-    return gCities.filter(city => {
-      let inputCity = searchLetters.toUpperCase()
-      let dataCity = city.LocalizedName.toUpperCase()
-      if (dataCity.startsWith(inputCity)) return city.LocalizedName
+    let filteredLocations = locations.filter(location => {
+      console.log(location)
+      let inputCity = text.toUpperCase()
+      let dataCity = location.LocalizedName.toUpperCase()
+      if (dataCity.startsWith(inputCity)) return location
     })
 
+    if (!filteredLocations.length) {
+      console.log('API Call')
+      const res = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${text}`)
+      filteredLocations = res.data
+
+      let locationsToSave = filteredLocations.concat(locations)
+      locationsToSave = [...new Map(locationsToSave.map((item) => [item.LocalizedName, item])).values()]
+      console.log(locationsToSave);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(locationsToSave))
+    }
+    return filteredLocations
   } catch (err) {
     console.log('Error getting location:', err);
   }
@@ -371,9 +373,9 @@ async function getLocations(searchLetters) {
 async function getForecast(locationKey) {
   try {
     console.log(locationKey);
-    // const res = await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${API_KEY}`)
-    // const forecast = res.data
-    return gForecast.DailyForecasts
+    const res = await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?metric=true&apikey=${API_KEY}`)
+    const forecast = res.data
+    return forecast.DailyForecasts
   } catch (err) {
     console.log('Error getting Location key');
   }

@@ -14,7 +14,7 @@ function getDay(timestamp) {
 function getDate(timestamp) {
     var date = new Date(timestamp * 1000);
     const month = date.getMonth() + 1
-    const day = date.getDay()
+    const day = date.getDate()
     const year = date.getFullYear()
     let dateToDisplay = `${(month < 10) ? '0' + month : month}/${(day < 10) ? '0' + day : day}/${year}`
     return dateToDisplay

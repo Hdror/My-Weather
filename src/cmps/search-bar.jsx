@@ -65,7 +65,7 @@ export const SearchBar = () => {
                 <div className="modal-text">Search Suggestions</div>
                 {cities.map(city => {
                     return <div className="option-container" key={city.Key}>
-                        <div className="dropdown-option" onClick={() => { onCitySelect(city) }}>  {city.LocalizedName} </div>
+                        <div className="dropdown-option" onClick={() => { onCitySelect(city) }}>  {city.LocalizedName}- {city.Country.LocalizedName} </div>
                     </div>
                 })}
             </div>}

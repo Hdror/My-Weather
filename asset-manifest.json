@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/css/main.2abcb475.css",
+    "main.js": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/js/main.20ea9f78.js",
+    "static/media/ElMessiri-VariableFont_wght.ttf": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/media/ElMessiri-VariableFont_wght.1a42b5f277c01838e6ab.ttf",
+    "static/media/AirbnbCerealBook.woff": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/media/AirbnbCerealBook.d42c6a4d011ab55732b2.woff",
+    "static/media/AirbnbCerealMedium.woff": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/media/AirbnbCerealMedium.8a9ee95760624b68a412.woff",
+    "static/media/AirbnbCerealLight.woff": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/media/AirbnbCerealLight.b23120006d8eb043d64a.woff",
+    "static/media/AirbnbCerealBlack.woff": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/media/AirbnbCerealBlack.1b848ef9b3436723dff6.woff",
+    "index.html": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/index.html",
+    "static/media/search.svg": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/media/search.1837d510efaa2dedf4ab18f9f398b184.svg",
+    "main.2abcb475.css.map": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/css/main.2abcb475.css.map",
+    "main.20ea9f78.js.map": "/%E2%80%8Bhttps://Hdror.github.io/My-Weather/static/js/main.20ea9f78.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2abcb475.css",
+    "static/js/main.20ea9f78.js"
+  ]
+}

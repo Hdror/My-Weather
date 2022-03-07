@@ -1,6 +1,6 @@
 {
   "name": "weather-app",
-  "homepage": "​https://Hdror.github.io/My-Weather",
+  "homepage":"https://Hdror.github.io/My-Weather",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

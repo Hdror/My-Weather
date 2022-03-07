@@ -1,6 +1,5 @@
 import { favoriteService } from '../services/favorite.service.js'
 
-
 export function loadFavorites() {
     return (dispatch) => {
         favoriteService.query()

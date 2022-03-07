@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinusCircle as fullCircle } from '@fortawesome/free-solid-svg-icons'
-import { faCircleMinus as emptyCircle } from '@fortawesome/free-regular-svg-icons'
 
 import { removeFavorite, loadFavorites } from '../store/favortie.action.js'
 
@@ -23,7 +22,6 @@ export class _FavoritePage extends React.Component {
     }
 
     render() {
-
         return <main className="favorite-page main-container">
             <div className="favorites-container ">
                 <h1>Your favorites</h1>
@@ -41,8 +39,6 @@ export class _FavoritePage extends React.Component {
         </main>
     }
 }
-
-
 
 function mapStateToProps(state) {
     return {

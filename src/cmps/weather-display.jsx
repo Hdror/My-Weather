@@ -12,7 +12,6 @@ export class WeatherDisplay extends React.Component {
         displayDayForecast: true
     }
 
-
     toggleForecast = () => {
         this.setState({ displayDayForecast: !this.state.displayDayForecast })
     }

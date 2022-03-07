@@ -27,16 +27,3 @@ function save(favorite) {
     console.log(favorite);
     return storageService.post(STORAGE_KEY, favorite)
 }
-
-
-// export function loadTodos() {
-
-//     return (dispatch, getState) => {
-//         const { filterBy } = getState()
-//         carService.query(filterBy)
-//             .then(cars => {
-//                 const action = { type: 'SET_CARS', cars };
-//                 dispatch(action)
-//             })
-//     }
-// }

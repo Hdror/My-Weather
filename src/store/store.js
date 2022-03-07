@@ -8,8 +8,6 @@ const rootReducer = combineReducers({
     favoriteModule: favoriteReducer,
 })
 
-
-
 export default createStore(
     rootReducer,
     applyMiddleware(thunk)

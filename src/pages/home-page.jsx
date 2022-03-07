@@ -2,17 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { loadFavorites, addFavorite, removeFavorite } from '../store/favortie.action.js'
-import { favoriteService } from '../services/favorite.service.js'
 
 import { SearchBar } from '../cmps/search-bar.jsx'
 import { WeatherDisplay } from '../cmps/weather-display.jsx'
 
-
-
 import { forecastService } from '../services/forecast.service.js'
 
 export class _HomePage extends React.Component {
-
     state = {
         forecast: [],
         city: null
@@ -24,26 +20,20 @@ export class _HomePage extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(prevProps);
-        console.log(this.props.match.params);
         if (prevProps.match.params !== this.props.match.params)
             this.submitSearch()
     }
 
     submitSearch = () => {
         const { cityId } = this.props.match.params
-        console.log(this.props.match.params)
         if (!cityId) return this.setState({ forecast: [], city: null })
         return (async () => {
-            console.log(cityId);
             const city = await forecastService.getByKey(cityId)
 
             const forecast = await forecastService.getForecast(city.Key)
-            this.setState({ forecast, city }, () => { console.log(this.state) })
-            console.log(city);
+            this.setState({ forecast, city })
         })()
     }
-
 
     onAddFavorite = (ev) => {
         const { city } = this.state
@@ -59,10 +49,8 @@ export class _HomePage extends React.Component {
         }
     }
 
-
     render() {
         const { forecast, city } = this.state
-        console.log(forecast);
         const { favorites } = this.props
         return <section className="main-container">
             <SearchBar submitSearch={this.submitSearch} />
@@ -72,7 +60,6 @@ export class _HomePage extends React.Component {
         </section>
     }
 }
-
 
 function mapStateToProps(state) {
     return {

@@ -7,7 +7,7 @@ My Weather is a one page application created with React, Redux, and SASS.
 Connected to weather API
 
 ## 🔗Link
-* [[My Weather- github pages]()](https://hdror.github.io/My-Weather/#/)
+* [My Weather- github pages()](https://hdror.github.io/My-Weather/#/)
 
 ## Features
 - `Autocomplete search`

@@ -15,6 +15,6 @@ Connected to weather API
 - `Responsive design`
 
 ## Related
-- Five day forecast API- https://dataservice.accuweather.com/forecasts/v1/daily/5day/ **${locationKey}** ?metric=true&apikey= **${API_KEY}**
-- Autocomplete API - https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey= `${API_KEY}` &q= **${text}** `
-- `[API used in this project: Accuweather](https://www.accuweather.com/)`
+- **Five day forecast** API- https://dataservice.accuweather.com/forecasts/v1/daily/5day/ `{locationKey}` ?metric=true&apikey= `${API_KEY}`
+- **Autocomplete API** - https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey= `${API_KEY}` &q=`${text}`
+- **[API used in this project: Accuweather]**(https://www.accuweather.com/)`
